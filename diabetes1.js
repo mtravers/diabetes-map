@@ -53,7 +53,11 @@ function click(d) {
   }
 
   g.selectAll("path")
-      .classed("active", centered && function(d) { return d === centered; });
+	.classed("active", centered && function(d) { return d === centered; })
+	.sort(function (a, b) { 
+	    if (centered && a.id != centered.id) return -1;  
+	    else return 1;   
+	    });
 
   g.transition()
       .duration(1000)
