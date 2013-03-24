@@ -1,8 +1,4 @@
-State Title V programs that provide coordination of care and medical coverage for children with diabetes,,,,,,,,,,,,,,,
-State,Coverage,,,,,,,Requirements,,,,Financing,,Income Eligibility Standards for other Public Programs,
-, Medical    , Dietician, Education, Mental health, Provide    , Insulin, HTN/Lipid  , FPL ‡ FPL ‡, Annual   , Required , Maximum  , Cap , Cost , SCHIP, Medicaid 
-, Provider,,,,transportation,, Lowering,, checkups, provider , Age (years), coverage ¶ coverage ¶, participation,,
-,,,,,,, Medications,,,,,,,,
+State,Medical Provider,Dietician,Education,Mental health,Transportation,Insulin,Medications HTN/Lipid,FPL,Annual checkups,Provide Required,Maximum Age,Coverage Cap,Participation Cost,SCHIP,Medicaid 
 AR,Y,Y,Y,Y,N,Y,Y,250%,Y,Y,21,N,N,200%,200%
 CA,Y,Y,Y,Y,Y,Y,Y,200%,Y,Y§Y§,21,N,Y,250%,100%
 CT,Y,N,Y,Y,N,Y,Y,300%,N,N,18,N,N,300%,185%
@@ -13,7 +9,7 @@ IN,Y,Y,Y,N,Y,Y,Y,NS,N,N,21,N,N,200%,100%
 LA,Y,Y,Y,Y,N,Y,NS,250%,Y,NS,21,N,Y,200%,100%
 MD,Y,Y,Y,Y,N,Y,Y,300%,N,N,21,"$2,000/yr ||$2,000/yr ||",N,300%,100%
 ME,Y,Y,Y,Y,Y,Y,Y,NS,Y,Y§Y§,21,N,N,200%,125%
-MI ,Y,Y,Y,Y,Y,Y,Y,NS,Y,Y§Y§,21,N,Y,200%,100%
+MI,Y,Y,Y,Y,Y,Y,Y,NS,Y,Y§Y§,21,N,Y,200%,100%
 MT,Y,Y,Y,N,N,Y,Y,200%,N,N,18,"$2,000/yr",N,150%,100%
 ND,Y,Y,Y,Y,Y,Y,Y,185%,N,N,21,"$20,000/yr",Y,140%,100%
 NE,Y,N,Y,N,Y,Y,Y,NS,N,N,18,N,Y,185%,100%

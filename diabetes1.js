@@ -17,13 +17,24 @@ svg.append("rect")
 var g = svg.append("g")
     .attr("id", "states");
 
-d3.json("data/us-states1.json", function(json) {
+
+queue()
+    .defer(d3.json, "data/us-states1.json")
+    .defer(d3.csv, "data/title v table d3.csv")
+    .await(ready);
+
+function ready(error, us, titlev) {
   g.selectAll("path")
-      .data(json.features)
-    .enter().append("path")
-      .attr("d", path)
-      .on("click", click);
-});
+	.data(us.features)
+	.enter().append("path")
+	.attr("d", path)
+	.attr("class", function(d) { 
+	    var abbrev = d["properties"]["abbrev"];
+	    var rows = titlev.filter(function(r) { return  r["State"] == abbrev;});
+	    return rows.length == 0 ? "no" : "yes";
+	})
+	.on("click", click);
+};
 
 function click(d) {
   var x, y, k;
