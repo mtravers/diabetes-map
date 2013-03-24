@@ -1,0 +1,31 @@
+State Title V programs that provide coordination of care and medical coverage for children with diabetes,,,,,,,,,,,,,,,
+State,Coverage,,,,,,,Requirements,,,,Financing,,Income Eligibility Standards for other Public Programs,
+, Medical    , Dietician, Education, Mental health, Provide    , Insulin, HTN/Lipid  , FPL ‡ FPL ‡, Annual   , Required , Maximum  , Cap , Cost , SCHIP, Medicaid 
+, Provider,,,,transportation,, Lowering,, checkups, provider , Age (years), coverage ¶ coverage ¶, participation,,
+,,,,,,, Medications,,,,,,,,
+AR,Y,Y,Y,Y,N,Y,Y,250%,Y,Y,21,N,N,200%,200%
+CA,Y,Y,Y,Y,Y,Y,Y,200%,Y,Y§Y§,21,N,Y,250%,100%
+CT,Y,N,Y,Y,N,Y,Y,300%,N,N,18,N,N,300%,185%
+FL,Y,Y,Y,Y,Y,Y,Y,200%,Y,Y§Y§,20,N,N,200%,100%
+GA,Y,Y,Y,N,Y,Y,Y,236%,N,N,21,N,Y,235%,100%
+IA,Y,Y,N,Y,N,Y,NS,NS,NS,NS,21,N,Y,200%,100%
+IN,Y,Y,Y,N,Y,Y,Y,NS,N,N,21,N,N,200%,100%
+LA,Y,Y,Y,Y,N,Y,NS,250%,Y,NS,21,N,Y,200%,100%
+MD,Y,Y,Y,Y,N,Y,Y,300%,N,N,21,"$2,000/yr ||$2,000/yr ||",N,300%,100%
+ME,Y,Y,Y,Y,Y,Y,Y,NS,Y,Y§Y§,21,N,N,200%,125%
+MI ,Y,Y,Y,Y,Y,Y,Y,NS,Y,Y§Y§,21,N,Y,200%,100%
+MT,Y,Y,Y,N,N,Y,Y,200%,N,N,18,"$2,000/yr",N,150%,100%
+ND,Y,Y,Y,Y,Y,Y,Y,185%,N,N,21,"$20,000/yr",Y,140%,100%
+NE,Y,N,Y,N,Y,Y,Y,NS,N,N,18,N,Y,185%,100%
+NH,Y,Y,Y,Y,Y,Y,Y,185%,N,N,21,N,N,300%,185%
+NM,Y,Y,Y,Y,Y,Y,Y,200%,N,N,21,"$15,000/yr",N,235%,185%
+NV,Y,Y,Y,N,N,Y,Y,250%,N,N,18,"$10,000/yr",N,200%,100%
+NY,Y,Y,Y,Y,Y,Y,Y,NS,N,N,21,N,Y,208%,100%
+OH,Y,Y,Y,Y,N,Y,Y,250%,Y,NS,21,N,N,200%,150%
+OK,Y,NS,Y,NS,Y,Y,Y,185%,NS,NS,18,N,N,185%,100%
+SC,Y,Y,Y,Y,Y,Y,Y,250%,N,N,21,N,N,150%,100%
+SD,Y,Y,Y,N,Y,Y,Y,250%,N,N,21,"$20,000/yr",Y,200%,100%
+TX,Y,Y,Y,Y,Y,Y,Y,200%,N,N,21,Yearly inpatient limit,N,200%,100%
+VA,Y,Y,Y,N,N,Y,Y,300%,N,N,21,"$10,000/admission and lifetime max of $50,000",N,200%,100%
+WA,Y,Y,N,Y,N,Y,Y,200%,N,N,18,N,N,250%,200%
+WY,Y,Y,Y,Y,Y,Y,Y,NS,N,N,18,"$40,000/yr",N,200%,100%
