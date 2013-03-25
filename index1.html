@@ -26,6 +26,19 @@ body {
 .map {fill:rgb(200,255,200)}
 .yes {fill:rgb(24, 24, 200)}
 .no {fill:rgb(200, 24, 24)}
+
+#desc {
+font-size: 24pt;
+}
+
+#stitle {
+  text-align: center;
+}
+
+.field {
+  color:blue;
+}
+
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -33,6 +46,27 @@ body {
 <script src="http://d3js.org/topojson.v0.min.js"></script>
 <script src="diabetes1.js"></script>
 
+<div id="desc">
+
+<h3 class="field" id="stitle">Virginia</h3>
+<p>
+Provides medical coverage and coordination of care for
+children with diabetes
+<p>
+The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
+<p>
+The income requirement for families for the Title V Program is an income below <span class="field" id="min_income_percent">300</span>% of the Federal Poverty Limit.
+<p>
+In comparison, the income requirement for other programs in this state are 200% for the State Children’s Medical Insurance Program and 100% for Medicaid
+<p>
+The maximum coverage cap for Title V is: $10,000/admission with a lifetime maximum of $50,000
+<p>
+This program provides coverage for:
+<br>Visits with a Medical Provider
+<br>Visits with a Dietician
+<br>Diabetes Education
+
+</div>
 
 <p>
 Made with <a href="http://d3js.org/">D3</a> by <a href="http://hyperphor.com">Mike Travers</a>. 

@@ -29,12 +29,17 @@ function ready(error, us, titlev) {
 	.enter().append("path")
 	.attr("d", path)
 	.attr("class", function(d) { 
-	    var abbrev = d["properties"]["abbrev"];
-	    var rows = titlev.filter(function(r) { return  r["State"] == abbrev;});
-	    return rows.length == 0 ? "no" : "yes";
+	    var row = state2row(d);
+	    return row ? "no" : "yes";
 	})
 	.on("click", click);
 };
+
+function state2row(dstate) {
+    var abbrev = dstate["properties"]["abbrev"];
+    var rows = titlev.filter(function(r) { return  r["State"] == abbrev;});
+    return rows.length == 1 ? rows[0] : null;
+}
 
 function click(d) {
   var x, y, k;
@@ -63,7 +68,27 @@ function click(d) {
       .duration(1000)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", 1.5 / k + "px");
+
+    updateText(centered);
+
 }
 
+function updateText(stateData) {
+    var row = state2row(stateData);
+    if (centered == null) {
+	d3.select('#desc').style("display", "none");
+    }
+    else {
+	d3.select('#desc').style("display", "");
+	d3.select('#desc').style("display", "");
+	setField('stitle', stateData['properties']['name']); 
+	setField('max_eligibility_age', row['Maximum Age']);
+    }
+
+}
+
+function setField(name, text) {
+    document.getElementById(name).innerHTML = text;
+}
 
 
