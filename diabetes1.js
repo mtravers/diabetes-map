@@ -23,21 +23,25 @@ queue()
     .defer(d3.csv, "data/title v table d3.csv")
     .await(ready);
 
-function ready(error, us, titlev) {
-  g.selectAll("path")
+// I'd rather roll this data into the geo data, but couldn't figure the right js magic for that.
+var titlev;
+
+function ready(error, us, titlev_a) {
+    titlev = titlev_a;
+    g.selectAll("path")
 	.data(us.features)
 	.enter().append("path")
 	.attr("d", path)
 	.attr("class", function(d) { 
 	    var row = state2row(d);
-	    return row ? "no" : "yes";
+	    return row == null ? "no" : "yes";
 	})
 	.on("click", click);
 };
 
 function state2row(dstate) {
-    var abbrev = dstate["properties"]["abbrev"];
-    var rows = titlev.filter(function(r) { return  r["State"] == abbrev;});
+    var abbrev = dstate["abbrev"];
+    var rows = titlev.filter(function(r) { return  r["abbrev"] == abbrev;});
     return rows.length == 1 ? rows[0] : null;
 }
 
@@ -74,14 +78,15 @@ function click(d) {
 }
 
 function updateText(stateData) {
+    setField('stitle', stateData['name']); 
     var row = state2row(stateData);
-    if (centered == null) {
+    if (row == null) {
 	d3.select('#desc').style("display", "none");
     }
     else {
 	d3.select('#desc').style("display", "");
 	d3.select('#desc').style("display", "");
-	setField('stitle', stateData['properties']['name']); 
+
 	setField('max_eligibility_age', row['Maximum Age']);
     }
 
