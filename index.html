@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<head>
 <title>The Safety Net of Healthcare Coverage for Children with Diabetes in the US</title>
 <meta charset="utf-8">
 <style>
@@ -40,12 +41,30 @@ font-size: 24pt;
 }
 
 </style>
-<body>
 <script src="http://d3js.org/d3.v3.min.js"></script> 
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v0.min.js"></script>
 <script src="diabetes.js"></script>
+</head>
+<body>
 
+<h3>The Safety Net for Children with Diabetes in the US</h3>
+
+The Children with Special Health Care Needs Program, funded through Title V of the Social Security Act of 1935, serves as a safety net for children with chronic diseases in the US, but the availability of coverage varies across states.  In 2006, we contacted Title V Programs in all 50 states to look at how coverage for children with diabetes varies across states.
+
+<center>
+
+<p>
+The <span class="no">red states</span> offer provide coordination of care but do not provide medical coverage.<br/>
+The <span class="yes">blue states</span> provide medical coverage but this coverage varies by state.
+<p>
+This is an interactive map. Click on individual states to explore the variation.
+<p>
+State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. doi:pii: S0022-3476(12)01455-2. 10.1016/j.jpeds.2012.
+
+</center>
+
+<div id="map"></div>
 
 <h3 class="field" id="stitle">Virginia</h3>
 <div id="desc">
