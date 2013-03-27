@@ -1,4 +1,4 @@
-abbrev,Medical Provider,Dietician,Education,Mental health,Transportation,Insulin,Medications HTN/Lipid,FPL,Annual checkups,Provide Required,Maximum Age,Coverage Cap,Participation Cost,SCHIP,Medicaid 
+abbrev,Medical Provider,Dietician,Education,Mental health,Transportation,Insulin,Medications HTN/Lipid,FPL,Annual checkups,Provide Required,Maximum Age,Coverage Cap,Participation Cost,SCHIP,Medicaid
 AR,Y,Y,Y,Y,N,Y,Y,250%,Y,Y,21,N,N,200%,200%
 CA,Y,Y,Y,Y,Y,Y,Y,200%,Y,Y§Y§,21,N,Y,250%,100%
 CT,Y,N,Y,Y,N,Y,Y,300%,N,N,18,N,N,300%,185%

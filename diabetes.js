@@ -90,8 +90,17 @@ function updateText(stateData) {
     }
     else {
 	d3.select('#desc').style("display", "");
-	d3.select('#desc').style("display", "");
 	setField('max_eligibility_age', row['Maximum Age']);
+	setField('schip', row['SCHIP']);
+	setField('medicaid', row['Medicaid']);
+	var cap = row['Coverage Cap'];
+	setField('cap', cap == 'N' ? "None" : cap);
+	toggleField('medical_provider', row["Medical Provider"]);
+	toggleField('dietician', row["Dietician"]);
+	toggleField('education', row["Education"]);
+	toggleField('mental_health', row["Mental Health"]);
+	toggleField('transportation', row["Transportation"]);
+	toggleField('insulin', row["Insulin"]);
     }
 }
 
@@ -99,4 +108,7 @@ function setField(name, text) {
     document.getElementById(name).innerHTML = text;
 }
 
+function toggleField(name, value) {
+    document.getElementById(name).style.display = (value == 'Y') ? "" : "none";
+}
 
