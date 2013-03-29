@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+<title>The Safety Net of Healthcare Coverage for Children with Diabetes in the US</title>
+<meta charset="utf-8">
+<style>
+
+body {
+ font-family: Gill Sans;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+#states {
+  fill: #aaa;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#states .active {
+  stroke: orange;
+  stroke-width:3px;
+}
+
+.map {fill:rgb(200,255,200)}
+.yes {fill:rgb(24, 24, 200)}
+.no {fill:rgb(200, 24, 24)}
+
+#desc {
+font-size: 12pt;
+}
+
+#stitle {
+  text-align: center;
+}
+
+.field {
+  color:blue;
+}
+
+/* ripped off from http://matthewjamestaylor.com/blog/perfect-2-column-double-page.htm */
+	/* column container */
+	.colmask {
+		clear:both;
+		float:left;
+		width:100%;			/* width of whole page */
+		overflow:hidden;		/* This chops off any overhanging divs */
+	}
+	/* common column settings */
+	.colright,
+	.colmid,
+	.colleft {
+		float:left;
+		width:100%;
+		position:relative;
+	}
+	.col1,
+	.col2,
+	.col3 {
+		float:left;
+		position:relative;
+		padding:0 0 1em 0;
+		overflow:hidden;
+	}
+	/* 2 Column (double page) settings */
+	.doublepage {
+		background:#eee;		/* right column background colour */
+	}
+	.doublepage .colleft {
+		right:50%;			/* right column width */
+		background:#fff;		/* left column background colour */
+	}
+	.doublepage .col1 {
+		width:46%;			/* left column content width (column width minus left and right padding) */
+		left:52%;			/* right column width plus left column left padding */
+	}
+	.doublepage .col2 {
+		width:46%;			/* right column content width (column width minus left and right padding) */
+		left:56%;			/* (right column width) plus (left column left and right padding) plus (right column left padding) */
+	}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script> 
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script src="diabetes.js"></script>
+</head>
+<body>
+
+<h3>The Safety Net for Children with Diabetes in the US</h3>
+
+The Children with Special Health Care Needs Program, funded through Title V of the Social Security Act of 1935, serves as a safety net for children with chronic diseases in the US, but the availability of coverage varies across states.  In 2006, we contacted Title V Programs in all 50 states to look at how coverage for children with diabetes varies across states.
+
+<center>
+
+<p>
+The <span class="no">red states</span> offer provide coordination of care but do not provide medical coverage.<br/>
+The <span class="yes">blue states</span> provide medical coverage but this coverage varies by state.
+<p>
+This is an interactive map. Click on individual states to explore the variation.
+<p>
+State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. doi:pii: S0022-3476(12)01455-2. 10.1016/j.jpeds.2012.
+
+</center>
+
+<div class="colmask doublepage">
+  <div class="colleft">
+    <div class="col1">
+      <div  id="map"></div>
+    </div>
+    <div class="col2">
+<h3 class="field" id="stitle">Virginia</h3>
+<span id="desc">
+<p>
+Provides medical coverage and coordination of care for
+children with diabetes
+<p>
+The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
+<p>
+The income requirement for families for the Title V Program is an income below <span class="field" id="min_income_percent">300</span>% of the Federal Poverty Limit.
+<p>
+In comparison, the income requirement for other programs in this state are <span class="field" id="schip">200%</span> for the State Children’s Medical Insurance Program and <span class="field" id="medicaid">100%</span> for Medicaid
+<p>
+The maximum coverage cap for Title V is: <span class="field" id="cap">$10,000/admission with a lifetime maximum of $50,000</span>
+<p>
+This program provides coverage for:
+<br><span class="field" id="medical_provider">Visits with a Medical Provider</span>
+<br><span class="field" id="dietician">Visits with a Dietician</span>
+<br><span class="field" id="education">Diabetes Education</span>
+<br><span class="field" id="mental_health">Mental Health</span>
+<br><span class="field" id="transportation">Transportation</span>
+<br><span class="field" id="insulin">Insulin</span>
+
+</span>
+
+</div>
+</div>
+</div>
+
+
+<p>
+Made with <a href="http://d3js.org/">d3.js</a> by <a href="http://hyperphor.com">Mike Travers</a>. 
+</body>

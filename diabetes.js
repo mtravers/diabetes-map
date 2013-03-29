@@ -1,4 +1,4 @@
-var scale = .7,
+var scale = .6,
     width = 960 * scale,
     height = 500 * scale;
 
