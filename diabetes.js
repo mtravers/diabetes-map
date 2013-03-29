@@ -60,8 +60,8 @@ function click(d) {
 	k = 4;
 	centered = d;
     } else {
-	x = width / 2;
-	y = height / 2;
+	x = width / (2*scale);
+	y = height / (2*scale);
 	k = 1;
 	centered = null;
     }
@@ -75,7 +75,7 @@ function click(d) {
 
     g.transition()
 	.duration(1000)
-	.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+	.attr("transform", "translate(" + width / (2*scale) + "," + height / (2*scale) + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
 	.style("stroke-width", 1.5 / k + "px");
 
     updateText(centered);
