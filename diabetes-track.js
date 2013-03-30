@@ -1,4 +1,4 @@
-var scale = .8,
+var scale = 1.0,
     width = 960 * scale,
     height = 500 * scale;
 
@@ -61,10 +61,10 @@ function move(d) {
 	});
 
     updateText(d);
-    // +++ move text box to mouse pos
     var box = document.getElementById('desc');
     var map = document.getElementById('map');
     var mouse = d3.mouse(map);
+    box.style.display = '';
     box.style.left = mouse[0] + "px";
     box.style.top = mouse[1] + "px";
 }

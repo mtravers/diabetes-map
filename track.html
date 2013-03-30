@@ -29,13 +29,16 @@ body {
 .no {fill:rgb(180, 180, 180)}
 
 #desc {
+pointer-events:none;
 position:absolute;
-border:1px;
+border:1px solid black;
 background:white;
 font-size: 10pt;
-width:200px;
+width:250px;
 height:300px;
-opacity:0.8;
+opacity:0.9;
+padding-left: 5px;
+padding-right: 5px;
 }
 
 #stitle {
@@ -74,25 +77,22 @@ State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfg
       <div  id="map">
 
       <div id="desc">
-      <h3 class="field" id="stitle">Virginia</h3>
-	<p>
-	  Provides medical coverage and coordination of care for children with diabetes
-	<p>
-	  The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
-	<p>
-The income requirement for families for the Title V Program is an income below <span class="field" id="min_income_percent">300</span>% of the Federal Poverty Limit.
-	<p>
-In comparison, the income requirement for other programs in this state are <span class="field" id="schip">200%</span> for the State Children’s Medical Insurance Program and <span class="field" id="medicaid">100%</span> for Medicaid
-	<p>
-The maximum coverage cap for Title V is: <span class="field" id="cap">$10,000/admission with a lifetime maximum of $50,000</span>
-	<p>
-	  This program provides coverage for:
-	  <div class="field" id="medical_provider">Visits with a Medical Provider</div>
-	  <div class="field" id="dietician">Visits with a Dietician</div>
-	  <div class="field" id="education">Diabetes Education</div>
-	  <div class="field" id="mental_health">Mental Health</div>
-	  <div class="field" id="transportation">Transportation</div>
-	  <div class="field" id="insulin">Insulin</div>
+      <h4 class="field" id="stitle">Virginia</h4>
+      Medical Coverage: <span class="field">yes</span><br/>
+      Coordination of Care: <span class="field">yes</span><br/>
+Maximum age of eligibility: <span class="field" id="max_eligibility_age">21</span><br/> 
+Title V income requirement: <span class="field" id="min_income_percent">300</span> % FPL<br/>
+SCHIP income requirement:  <span class="field" id="schip">200</span> % FPL<br/>
+Medicaid income requirement:  <span class="field" id="medicaid">200</span> % FPL<br/>
+Maximum coverage cap::  <span class="field" id="cap"> $10,000/admission</span><br/>
+with a lifetime maximum of <span class="field"> $5,000</span><br/>
+Coverage provided for: 	  <span class="field" id="medical_provider">Visits with a Medical Provider, </span>
+	  <span class="field" id="dietician">Visits with a Dietician, </span>
+	  <span class="field" id="education">Diabetes Education, </span>
+	  <span class="field" id="mental_health">Mental Health, </span>
+	  <span class="field" id="transportation">Transportation, </span>
+	  <span class="field" id="insulin">Insulin</span>
+
 
       </div>
 
