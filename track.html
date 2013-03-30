@@ -29,7 +29,13 @@ body {
 .no {fill:rgb(180, 180, 180)}
 
 #desc {
-font-size: 12pt;
+position:absolute;
+border:1px;
+background:white;
+font-size: 10pt;
+width:200px;
+height:300px;
+opacity:0.8;
 }
 
 #stitle {
@@ -40,46 +46,6 @@ font-size: 12pt;
   color:blue;
 }
 
-/* ripped off from http://matthewjamestaylor.com/blog/perfect-2-column-double-page.htm */
-	/* column container */
-	.colmask {
-		clear:both;
-		float:left;
-		width:100%;			/* width of whole page */
-		overflow:hidden;		/* This chops off any overhanging divs */
-	}
-	/* common column settings */
-	.colright,
-	.colmid,
-	.colleft {
-		float:left;
-		width:100%;
-		position:relative;
-	}
-	.col1,
-	.col2,
-	.col3 {
-		float:left;
-		position:relative;
-		padding:0 0 1em 0;
-		overflow:hidden;
-	}
-	/* 2 Column (double page) settings */
-	.doublepage {
-		background:#eee;		/* right column background colour */
-	}
-	.doublepage .colleft {
-		right:50%;			/* right column width */
-		background:#fff;		/* left column background colour */
-	}
-	.doublepage .col1 {
-		width:46%;			/* left column content width (column width minus left and right padding) */
-		left:52%;			/* right column width plus left column left padding */
-	}
-	.doublepage .col2 {
-		width:46%;			/* right column content width (column width minus left and right padding) */
-		left:56%;			/* (right column width) plus (left column left and right padding) plus (right column left padding) */
-	}
 
 </style>
 <script src="http://d3js.org/d3.v3.min.js"></script> 
@@ -105,40 +71,38 @@ State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfg
 
 </center>
 
-<div class="colmask doublepage">
-  <div class="colleft">
-    <div class="col1">
-      <div  id="map"></div>
-    </div>
-    <div class="col2">
-<h3 class="field" id="stitle">Virginia</h3>
-<span id="desc">
-<p>
-Provides medical coverage and coordination of care for
-children with diabetes
-<p>
-The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
-<p>
+      <div  id="map">
+
+      <div id="desc">
+      <h3 class="field" id="stitle">Virginia</h3>
+	<p>
+	  Provides medical coverage and coordination of care for children with diabetes
+	<p>
+	  The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
+	<p>
 The income requirement for families for the Title V Program is an income below <span class="field" id="min_income_percent">300</span>% of the Federal Poverty Limit.
-<p>
+	<p>
 In comparison, the income requirement for other programs in this state are <span class="field" id="schip">200%</span> for the State Children’s Medical Insurance Program and <span class="field" id="medicaid">100%</span> for Medicaid
-<p>
+	<p>
 The maximum coverage cap for Title V is: <span class="field" id="cap">$10,000/admission with a lifetime maximum of $50,000</span>
-<p>
-This program provides coverage for:
-<div class="field" id="medical_provider">Visits with a Medical Provider</div>
-<div class="field" id="dietician">Visits with a Dietician</div>
-<div class="field" id="education">Diabetes Education</div>
-<div class="field" id="mental_health">Mental Health</div>
-<div class="field" id="transportation">Transportation</div>
-<div class="field" id="insulin">Insulin</div>
+	<p>
+	  This program provides coverage for:
+	  <div class="field" id="medical_provider">Visits with a Medical Provider</div>
+	  <div class="field" id="dietician">Visits with a Dietician</div>
+	  <div class="field" id="education">Diabetes Education</div>
+	  <div class="field" id="mental_health">Mental Health</div>
+	  <div class="field" id="transportation">Transportation</div>
+	  <div class="field" id="insulin">Insulin</div>
+
+      </div>
+
 
 
 </div>
-</div>
-</div>
-
 
 <p>
 Made with <a href="http://d3js.org/">d3.js</a> by <a href="http://hyperphor.com">Mike Travers</a>. 
+
+
+
 </body>
