@@ -14,6 +14,7 @@ queue()
     .await(ready);
 
 function ready(error, us, titlev_a) {
+
     var svg = d3.select("#map").append("svg")
 	    .attr("width", width)
 	    .attr("height", height);
@@ -26,7 +27,7 @@ function ready(error, us, titlev_a) {
 
     // scale to fit
     var gg = svg.append("g")
-    	.attr("transform", "scale(" + scale + ")");
+    	    .attr("transform", "scale(" + scale + ")");
 
     g = gg.append("g")
 	.attr("id", "states");
@@ -52,9 +53,6 @@ function state2row(dstate) {
 
 function move(d) {
     var box = document.getElementById('desc');
-    if (d == null) {
-	box.style.display = 'none';
-    } else {
 
     g.selectAll("path")
 	.classed("active", function(dd) { return d === dd; })
@@ -63,13 +61,18 @@ function move(d) {
 	    else return 1;   
 	});
 
-    updateText(d);
+    if (d == null) {
+	box.style.display = 'none';
+    } else {
 
-    var map = document.getElementById('map');
-    var mouse = d3.mouse(map);
-    box.style.display = '';
-    box.style.left = mouse[0] + map.offsetLeft + "px";
-    box.style.top = mouse[1] + map.offsetTop + "px";
+
+	updateText(d);
+
+	var map = document.getElementById('map');
+	var mouse = d3.mouse(map);
+	box.style.display = 'block';
+	box.style.left = mouse[0] + map.offsetLeft + "px";
+	box.style.top = mouse[1] + map.offsetTop + "px";
     }
 }
 
@@ -78,10 +81,10 @@ function updateText(stateData) {
     var row = state2row(stateData);
     if (row == null) {
 	document.getElementById('yesdata').style.display = 'none';
-	document.getElementById('nodata').style.display = '';
+	document.getElementById('nodata').style.display = 'block';
     }
     else {
-	document.getElementById('yesdata').style.display = '';
+	document.getElementById('yesdata').style.display = 'block';
 	document.getElementById('nodata').style.display = 'none';
 	setField('max_eligibility_age', row['Maximum Age']);
 	setField('schip', row['SCHIP']);
