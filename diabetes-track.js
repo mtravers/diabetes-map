@@ -51,7 +51,10 @@ function state2row(dstate) {
 }
 
 function move(d) {
-    var x, y, k;
+    var box = document.getElementById('desc');
+    if (d == null) {
+	box.style.display = 'none';
+    } else {
 
     g.selectAll("path")
 	.classed("active", function(dd) { return d === dd; })
@@ -61,22 +64,25 @@ function move(d) {
 	});
 
     updateText(d);
-    var box = document.getElementById('desc');
+
     var map = document.getElementById('map');
     var mouse = d3.mouse(map);
     box.style.display = '';
-    box.style.left = mouse[0] + "px";
-    box.style.top = mouse[1] + "px";
+    box.style.left = mouse[0] + map.offsetLeft + "px";
+    box.style.top = mouse[1] + map.offsetTop + "px";
+    }
 }
 
 function updateText(stateData) {
     setField('stitle', stateData['name']); 
     var row = state2row(stateData);
     if (row == null) {
-	d3.select('#desc').style("display", "none");
+	document.getElementById('yesdata').style.display = 'none';
+	document.getElementById('nodata').style.display = '';
     }
     else {
-	d3.select('#desc').style("display", "");
+	document.getElementById('yesdata').style.display = '';
+	document.getElementById('nodata').style.display = 'none';
 	setField('max_eligibility_age', row['Maximum Age']);
 	setField('schip', row['SCHIP']);
 	setField('medicaid', row['Medicaid']);
