@@ -40,7 +40,7 @@ function ready(error, us, titlev_a) {
 	.attr("d", path)
 	.attr("class", function(d) { 
 	    var row = state2row(d);
-	    return row == null ? "no" : "yes";
+	    return row == null ? 'none' : (row['Medical Provider'] == 'Y' ? 'medical' : 'coordination');
 	})
 	.on("mousemove", move);
 };
@@ -76,27 +76,35 @@ function move(d) {
     }
 }
 
+function selectContent(id) {
+    ['medical','coordination','none'].forEach( function(elt) {
+	document.getElementById(elt).style.display = (elt == id) ? 'block' : 'none';
+    });
+}
+
 function updateText(stateData) {
     setField('stitle', stateData['name']); 
     var row = state2row(stateData);
     if (row == null) {
-	document.getElementById('yesdata').style.display = 'none';
-	document.getElementById('nodata').style.display = 'block';
-    }
-    else {
-	document.getElementById('yesdata').style.display = 'block';
-	document.getElementById('nodata').style.display = 'none';
-	setField('max_eligibility_age', row['Maximum Age']);
-	setField('schip', row['SCHIP']);
-	setField('medicaid', row['Medicaid']);
-	var cap = row['Coverage Cap'];
-	setField('cap', cap == 'N' ? "None" : cap);
-	toggleField('medical_provider', row["Medical Provider"]);
-	toggleField('dietician', row["Dietician"]);
-	toggleField('education', row["Education"]);
-	toggleField('mental_health', row["Mental Health"]);
-	toggleField('transportation', row["Transportation"]);
-	toggleField('insulin', row["Insulin"]);
+	selectContent('none');
+    } else {
+	if (row['Medical Provider'] == 'Y') {
+
+	    selectContent('medical');
+	    setField('max_eligibility_age', row['Maximum Age']);
+	    setField('schip', row['SCHIP']);
+	    setField('medicaid', row['Medicaid']);
+	    var cap = row['Coverage Cap'];
+	    setField('cap', cap == 'N' ? "None" : cap);
+	    toggleField('medical_provider', row["Medical Provider"]);
+	    toggleField('dietician', row["Dietician"]);
+	    toggleField('education', row["Education"]);
+	    toggleField('mental_health', row["Mental Health"]);
+	    toggleField('transportation', row["Transportation"]);
+	    toggleField('insulin', row["Insulin"]);
+	} else {
+	    selectContent('coordination');
+	}
     }
 }
 

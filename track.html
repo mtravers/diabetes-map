@@ -5,7 +5,7 @@
 <style>
 
 body {
- font-family: Gill Sans;
+ font-family: Helvetica Neue;
 }
 
 .background {
@@ -20,13 +20,14 @@ body {
 }
 
 #states .active {
-  stroke: blue;
+  stroke: black;
   stroke-width:3px;
 }
 
-.map {fill:rgb(200,255,200)}
-.yes {fill:rgb(24, 150, 36); color:rgb(24, 150, 36) }
-.no {fill:rgb(180, 180, 180); color:rgb(180, 180, 180) }
+.medical {fill:rgb(21, 77, 92); color:rgb(21, 77, 92) }
+.coordination {fill:rgb(144, 174, 191); color:rgb(144, 174, 191) }
+.nothing {fill:rgb(255,255,255); color:rgb(255,255,255) }
+
 
 #desc {
 display:none;
@@ -42,7 +43,7 @@ text-align:left;
 }
 
 .field {
-  color:blue;
+  font-weight:bold;
 }
 
 .title {
@@ -79,9 +80,9 @@ State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfg
 
     <div id="desc">
       <div class="field title" id="stitle">Virginia</div>
-      <div id="nodata">No data available</div>
-
-      <div id="yesdata">
+      <div id="none">Does not provide medical coverage or coordination of care.</div>
+      <div id="coordination">Only provides coordination of care.</div>
+      <div id="medical">
 	Medical Coverage: <span class="field">yes</span><br/>
 	Coordination of Care: <span class="field">yes</span><br/>
 	Maximum age of eligibility: <span class="field" id="max_eligibility_age">21</span><br/> 

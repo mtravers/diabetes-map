@@ -25,3 +25,9 @@ TX,Y,Y,Y,Y,Y,Y,Y,200%,N,N,21,Yearly inpatient limit,N,200%,100%
 VA,Y,Y,Y,N,N,Y,Y,300%,N,N,21,"$10,000/admission and lifetime max of $50,000",N,200%,100%
 WA,Y,Y,N,Y,N,Y,Y,200%,N,N,18,N,N,250%,200%
 WY,Y,Y,Y,Y,Y,Y,Y,NS,N,N,18,"$40,000/yr",N,200%,100%
+OR,N
+CO,N
+WI,N
+SC,N
+MA,N
+NJ,N
