@@ -4,7 +4,7 @@ This is a visualization project to accompany:
 
 [[http://www.ncbi.nlm.nih.gov/pubmed/?term=23324525][State-to-State Variability in Title V Coverage for Children with Diabetes]]. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. 
 
-See it at http://mtravers.github.com/diabetes-map/index.html
+See it at http://mtravers.github.com/diabetes-map/public/index.html
 
 ** Installation
 
