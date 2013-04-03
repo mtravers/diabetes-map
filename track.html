@@ -6,6 +6,8 @@
 
 body {
  font-family: Helvetica Neue;
+ padding-left:15px;
+ padding-right:15px;
 }
 
 .background {
@@ -26,7 +28,7 @@ body {
 
 .medical {fill:rgb(21, 77, 92); color:rgb(21, 77, 92) }
 .coordination {fill:rgb(144, 174, 191); color:rgb(144, 174, 191) }
-.nothing {fill:rgb(255,255,255); color:rgb(255,255,255) }
+.none {fill:rgb(200,200,200); color:rgb(200,200,200) }
 
 
 #desc {
@@ -60,24 +62,31 @@ margin-bottom:4px;
 </head>
 <body>
 
+<center>
 <h3>The Safety Net for Children with Diabetes in the US</h3>
 
-The Children with Special Health Care Needs Program, funded through Title V of the Social Security Act of 1935, serves as a safety net for children with chronic diseases in the US, but the availability of coverage varies across states.  In 2006, we contacted Title V Programs in all 50 states to look at how coverage for children with diabetes varies across states.
-
-
-
+This map displays the results of a study we performed to examine the safety net of healthcare coverage for children with diabetes in the United States.  This is a really important issue given that the overall burden of diabetes in children is rising in the U.S., and diabetes imposes a large financial burden on families who must manage the disease.
 <p>
-The <span class="no">gray states</span> offer may provide coordination of care, but do not provide medical coverage.<br/>
-The <span class="yes">green states</span> provide medical coverage and coordination of care. This coverage varies by state.
+Title V programs for Children and Youth with Special Health Care Needs serve children with a variety of chronic diseases.  Every state has a Title V program, which can provide medical coverage and coordination of care for children, but the availability of coverage varies by diagnosis and state. In 2006, we contacted Title V Programs in all 50 states to examine whether children with  diabetes are covered by Title V programs and what types of services are covered.
 <p>
-This is an interactive map. Move the mouse over individual states to explore the variation.
+We found that children with diabetes were eligible for Title V programs in just 32 states, which at a minimum would provide assistance with coordination of care for these children.  However, only twenty-six states (51%) provided medical coverage to pay for visits with health care professionals and medications like insulin.  Only 24 states also covered diabetes supplies (eg, glucometer strips, syringes).
+The bottom line is that children who do not have access to a private health plan, and who do not qualify for income-based programs like Medicaid may not have access to the basic elements of care, simply based on geography.
 <p>
-State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. doi:pii: S0022-3476(12)01455-2. 10.1016/j.jpeds.2012.
-
+The <span class="medical">dark blue</span> states provide medical coverage and coordination of care. This coverage varies by state. </br>
+The <span class="coordination">light blue</span> states provide only coordination of care.</br>
+The <span class="none">gray states</span> do not provide medical coverage or coordination of care.
+<p>
+<b>This is an interactive map. Move the mouse over individual states to explore the variation.</b>
+<p>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=23324525"><i>State-to-State Variability in Title V Coverage for Children with Diabetes</i></a>. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. 
+<p>
+For more information about Title V Programs <a href="https://mchdata.hrsa.gov/tvisreports/Default.aspx">please visit this website</a>.
+<p>
+Thanks for viewing!  Please send me comments on Twitter (<a href="http://twitter.com/joyclee">@joyclee</a>) or email.
+</center>
 
 <center>
-  <div  id="map">
-
+  <div id="map">
     <div id="desc">
       <div class="field title" id="stitle">Virginia</div>
       <div id="none">Does not provide medical coverage or coordination of care.</div>
@@ -106,7 +115,7 @@ State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfg
   </div>
 </center>
 <p>
-Visualization by <a href="http://hyperphor.com">Mike Travers</a> with <a href="http://d3js.org/">d3.js</a>. 
+Visualization by <a href="http://hyperphor.com">Mike Travers</a> using <a href="http://d3js.org/">d3.js</a>. 
 
 
 
