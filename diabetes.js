@@ -1,4 +1,4 @@
-var scale = .6,
+var scale = 1.0,
     width = 960 * scale,
     height = 500 * scale;
 
@@ -9,11 +9,12 @@ var titlev;
 var centered;
 
 queue()
-    .defer(d3.json, "data/us-states1.json")
+    .defer(d3.json, "data/us-states.json")
     .defer(d3.csv, "data/title v table d3.csv")
     .await(ready);
 
 function ready(error, us, titlev_a) {
+
     var svg = d3.select("#map").append("svg")
 	    .attr("width", width)
 	    .attr("height", height);
@@ -22,11 +23,11 @@ function ready(error, us, titlev_a) {
 	.attr("class", "background")
 	.attr("width", width)
 	.attr("height", height)
-	.on("click", click);
+	.on("mousemove", move);
 
     // scale to fit
     var gg = svg.append("g")
-    	.attr("transform", "scale(" + scale + ")");
+    	    .attr("transform", "scale(" + scale + ")");
 
     g = gg.append("g")
 	.attr("id", "states");
@@ -39,9 +40,9 @@ function ready(error, us, titlev_a) {
 	.attr("d", path)
 	.attr("class", function(d) { 
 	    var row = state2row(d);
-	    return row == null ? "no" : "yes";
+	    return row == null ? 'none' : (row['Medical Provider'] == 'Y' ? 'medical' : 'coordination');
 	})
-	.on("click", click);
+	.on("mousemove", move);
 };
 
 function state2row(dstate) {
@@ -50,57 +51,60 @@ function state2row(dstate) {
     return rows.length == 1 ? rows[0] : null;
 }
 
-function click(d) {
-    var x, y, k;
-
-    if (d && centered !== d) {
-	var centroid = path.centroid(d);
-	x = centroid[0];
-	y = centroid[1];
-	k = 4;
-	centered = d;
-    } else {
-	x = width / (2*scale);
-	y = height / (2*scale);
-	k = 1;
-	centered = null;
-    }
+function move(d) {
+    var box = document.getElementById('desc');
 
     g.selectAll("path")
-	.classed("active", centered && function(d) { return d === centered; })
+	.classed("active", function(dd) { return d === dd; })
 	.sort(function (a, b) { 
-	    if (centered && a.id != centered.id) return -1;  
+	    if (d && a.id != d.id) return -1;  
 	    else return 1;   
 	});
 
-    g.transition()
-	.duration(1000)
-	.attr("transform", "translate(" + width / (2*scale) + "," + height / (2*scale) + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-	.style("stroke-width", 1.5 / k + "px");
+    if (d == null) {
+	box.style.display = 'none';
+    } else {
 
-    updateText(centered);
 
+	updateText(d);
+
+	var map = document.getElementById('map');
+	var mouse = d3.mouse(map);
+	box.style.display = 'block';
+	box.style.left = mouse[0] + map.offsetLeft + "px";
+	box.style.top = mouse[1] + map.offsetTop + "px";
+    }
+}
+
+function selectContent(id) {
+    ['medical','coordination','none'].forEach( function(elt) {
+	document.getElementById(elt).style.display = (elt == id) ? 'block' : 'none';
+    });
 }
 
 function updateText(stateData) {
     setField('stitle', stateData['name']); 
     var row = state2row(stateData);
     if (row == null) {
-	d3.select('#desc').style("display", "none");
-    }
-    else {
-	d3.select('#desc').style("display", "");
-	setField('max_eligibility_age', row['Maximum Age']);
-	setField('schip', row['SCHIP']);
-	setField('medicaid', row['Medicaid']);
-	var cap = row['Coverage Cap'];
-	setField('cap', cap == 'N' ? "None" : cap);
-	toggleField('medical_provider', row["Medical Provider"]);
-	toggleField('dietician', row["Dietician"]);
-	toggleField('education', row["Education"]);
-	toggleField('mental_health', row["Mental Health"]);
-	toggleField('transportation', row["Transportation"]);
-	toggleField('insulin', row["Insulin"]);
+	selectContent('none');
+    } else {
+	if (row['Medical Provider'] == 'Y') {
+
+	    selectContent('medical');
+	    setField('max_eligibility_age', row['Maximum Age']);
+	    setField('schip', row['SCHIP']);
+	    setField('medicaid', row['Medicaid']);
+	    var cap = row['Coverage Cap'];
+	    setField('cap', cap == 'N' ? "None" : cap);
+	    toggleField('medical_provider', row["Medical Provider"]);
+	    toggleField('dietician', row["Dietician"]);
+	    toggleField('education', row["Education"]);
+	    toggleField('mental_health', row["Mental Health"]);
+	    toggleField('transportation', row["Transportation"]);
+	    toggleField('insulin', row["Insulin"]);
+	} else {
+	    selectContent('coordination');
+	}
     }
 }
 

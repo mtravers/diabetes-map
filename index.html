@@ -5,7 +5,9 @@
 <style>
 
 body {
- font-family: Gill Sans;
+ font-family: Helvetica Neue;
+ padding-left:35px;
+ padding-right:35px;
 }
 
 .background {
@@ -20,24 +22,36 @@ body {
 }
 
 #states .active {
-  stroke: orange;
+  stroke: black;
   stroke-width:3px;
 }
 
-.map {fill:rgb(200,255,200)}
-.yes {fill:rgb(24, 24, 200)}
-.no {fill:rgb(200, 24, 24)}
+.medical {fill:rgb(21, 77, 92); color:rgb(21, 77, 92) }
+.coordination {fill:rgb(144, 174, 191); color:rgb(144, 174, 191) }
+.none {fill:rgb(200,200,200); color:rgb(200,200,200) }
+
 
 #desc {
-font-size: 18pt;
-}
-
-#stitle {
-  text-align: center;
+display:none;
+pointer-events:none;
+position:absolute;
+border:1px solid black;
+background:white;
+font-size: 10pt;
+width:250px;
+opacity:0.9;
+padding: 5px;
+text-align:left;
 }
 
 .field {
-  color:blue;
+  font-weight:bold;
+}
+
+.title {
+text-align:center;
+font-size: 12pt;
+margin-bottom:4px;
 }
 
 </style>
@@ -48,48 +62,62 @@ font-size: 18pt;
 </head>
 <body>
 
-<h3>The Safety Net for Children with Diabetes in the US</h3>
-
-The Children with Special Health Care Needs Program, funded through Title V of the Social Security Act of 1935, serves as a safety net for children with chronic diseases in the US, but the availability of coverage varies across states.  In 2006, we contacted Title V Programs in all 50 states to look at how coverage for children with diabetes varies across states.
-
 <center>
-
-<p>
-The <span class="no">red states</span> offer provide coordination of care but do not provide medical coverage.<br/>
-The <span class="yes">blue states</span> provide medical coverage but this coverage varies by state.
-<p>
-This is an interactive map. Click on individual states to explore the variation.
-<p>
-State-to-State Variability in Title V Coverage for Children with Diabetes. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. doi:pii: S0022-3476(12)01455-2. 10.1016/j.jpeds.2012.
-
+<h3>The Safety Net for Children with Diabetes in the US</h3>
 </center>
 
-<div id="map"></div>
+This map displays the results of a study we performed to examine the safety net of healthcare coverage for children with diabetes in the United States.  This is a really important issue given that the overall burden of diabetes in children is rising in the U.S., and diabetes imposes a large financial burden on families who must manage the disease.
+<p>
+Title V programs for Children and Youth with Special Health Care Needs serve children with a variety of chronic diseases.  Every state has a Title V program, which can provide medical coverage and coordination of care for children, but the availability of coverage varies by diagnosis and state. In 2006, we contacted Title V Programs in all 50 states to examine whether children with  diabetes are covered by Title V programs and what types of services are covered.
+<p>
+We found that children with diabetes were eligible for Title V programs in just 32 states, which at a minimum would provide assistance with coordination of care for these children.  However, only twenty-six states (51%) provided medical coverage to pay for visits with health care professionals and medications like insulin.  Only 24 states also covered diabetes supplies (eg, glucometer strips, syringes).
+The bottom line is that children who do not have access to a private health plan, and who do not qualify for income-based programs like Medicaid may not have access to the basic elements of care, simply based on geography.
+<p>
+The <span class="medical">dark blue</span> states provide medical coverage and coordination of care. This coverage varies by state. </br>
+The <span class="coordination">light blue</span> states provide only coordination of care.</br>
+The <span class="none">gray states</span> do not provide medical coverage or coordination of care.
+<p>
+<b>This is an interactive map. Move the mouse over individual states to explore the variation.</b>
+<p>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=23324525"><i>State-to-State Variability in Title V Coverage for Children with Diabetes</i></a>. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. 
+<p>
+For more information about Title V Programs <a href="https://mchdata.hrsa.gov/tvisreports/Default.aspx">please visit this website</a>.
+<p>
+Thanks for viewing!  Please send me comments on Twitter (<a href="http://twitter.com/joyclee">@joyclee</a>).
 
-<h3 class="field" id="stitle">Virginia</h3>
-<div id="desc">
-<p>
-Provides medical coverage and coordination of care for
-children with diabetes
-<p>
-The maximum age of eligibility is <span class="field" id="max_eligibility_age">21</span> years.
-<p>
-The income requirement for families for the Title V Program is an income below <span class="field" id="min_income_percent">300</span>% of the Federal Poverty Limit.
-<p>
-In comparison, the income requirement for other programs in this state are <span class="field" id="schip">200%</span> for the State Children’s Medical Insurance Program and <span class="field" id="medicaid">100%</span> for Medicaid
-<p>
-The maximum coverage cap for Title V is: <span class="field" id="cap">$10,000/admission with a lifetime maximum of $50,000</span>
-<p>
-This program provides coverage for:
-<br><span class="field" id="medical_provider">Visits with a Medical Provider</span>
-<br><span class="field" id="dietician">Visits with a Dietician</span>
-<br><span class="field" id="education">Diabetes Education</span>
-<br><span class="field" id="mental_health">Mental Health</span>
-<br><span class="field" id="transportation">Transportation</span>
-<br><span class="field" id="insulin">Insulin</span>
 
-</div>
+<center>
+  <div id="map">
+    <div id="desc">
+      <div class="field title" id="stitle">Virginia</div>
+      <div id="none">Does not provide medical coverage or coordination of care.</div>
+      <div id="coordination">Only provides coordination of care.</div>
+      <div id="medical">
+	Medical Coverage: <span class="field">yes</span><br/>
+	Coordination of Care: <span class="field">yes</span><br/>
+	Maximum age of eligibility: <span class="field" id="max_eligibility_age">21</span><br/> 
+	Title V income requirement: <span class="field" id="min_income_percent">300</span> % FPL<br/>
+	SCHIP income requirement:  <span class="field" id="schip">200</span> % FPL<br/>
+	Medicaid income requirement:  <span class="field" id="medicaid">200</span> % FPL<br/>
+	Maximum coverage cap::  <span class="field" id="cap"> $10,000/admission</span><br/>
+	with a lifetime maximum of <span class="field"> $5,000</span><br/>
+	Coverage provided for: 	  <span class="field" id="medical_provider">Visits with a Medical Provider, </span>
+	<span class="field" id="dietician">Visits with a Dietician, </span>
+	<span class="field" id="education">Diabetes Education, </span>
+	<span class="field" id="mental_health">Mental Health, </span>
+	<span class="field" id="transportation">Transportation, </span>
+	<span class="field" id="insulin">Insulin</span>
+      </div>
 
+    </div>
+
+
+
+  </div>
+</center>
 <p>
-Made with <a href="http://d3js.org/">d3.js</a> by <a href="http://hyperphor.com">Mike Travers</a>. 
+Visualization by <a href="http://hyperphor.com">Mike Travers</a> using <a href="http://d3js.org/">d3.js</a>. 
+
+
+
 </body>
