@@ -1,0 +1,17 @@
+* Healthcare coverave for children with Diabetes in the US
+
+This is a visualization project to accompany:
+
+[[http://www.ncbi.nlm.nih.gov/pubmed/?term=23324525][/State-to-State Variability in Title V Coverage for Children with Diabetes/]]. Wolfgram PM, Sarrault J, Clark S, Lee JM. J Pediatr. 2013 Jan 13. 
+
+See it at http://mtravers.github.com/diabetes-map/index.html
+
+** Installation
+
+The files in ~public/~ can be installed on any web server. The visualization will not run from local files due to browser security issues; if you want to do that you need to download local copies of the d3 libraries and modify ~index.html~ to use them.
+
+
+
+
+
+

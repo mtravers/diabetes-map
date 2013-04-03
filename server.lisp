@@ -1,4 +1,4 @@
-(ql:quickload :wuwei)
+(ql:quickload :aserve)
 
 (net.aserve:publish-directory :prefix "/" :destination "/misc/repos/diabetes-map/")
 

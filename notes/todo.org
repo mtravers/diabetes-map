@@ -1,3 +1,0 @@
-* Templates
-* Fix state highlight
-* 
